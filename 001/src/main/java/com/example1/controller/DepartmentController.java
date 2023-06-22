@@ -28,10 +28,21 @@ public class DepartmentController {
         return departmentService.getDepartmentById(departmentId);
 
     }
-    @GetMapping("/departments/name/{name}")
+    @GetMapping("/departments/{name}")
     public Department getDepartmentByName(@PathVariable("name") String departmentName){
         return departmentService.getDepartmentByName(departmentName);
     }
+
+    @DeleteMapping("/departments/{id}")
+    public void deleteDepartmentById(@PathVariable("id") Long departmentId)
+    {
+        departmentService.deleteDepartmentById(departmentId);
+    }
+    @PutMapping("/departments/{id}")
+    public Department updateDepartmentById(@PathVariable("id") Long departmentId,@RequestBody Department department){
+        return departmentService.updateDepartmentById(departmentId,department);
+    }
+
 
 
 }
